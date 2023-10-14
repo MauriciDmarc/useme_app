@@ -7,7 +7,7 @@ class SignInScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black87,
+      backgroundColor: const Color(0xFF1A1A1A),
       body: Column(
         children: [
           Expanded(child: Container()),
