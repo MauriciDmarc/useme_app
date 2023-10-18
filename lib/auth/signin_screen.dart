@@ -1,6 +1,8 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
+import 'package:useme_app/base/base_screen.dart';
 import 'package:useme_app/components/custom_textformfield.dart';
+import 'package:useme_app/config/custom_colors.dart';
 
 class SignInScreen extends StatelessWidget {
   const SignInScreen({super.key});
@@ -8,7 +10,7 @@ class SignInScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF1A1A1A),
+      backgroundColor: CustomColors.customContrastColor,
       body: Column(
         children: [
           //logo
@@ -23,14 +25,8 @@ class SignInScreen extends StatelessWidget {
                   'image/logo.png',
                   fit: BoxFit.scaleDown,
                 ),
-                const Divider(
-                  color: Colors.white,
-                  thickness: 1,
-                  indent: 32,
-                  endIndent: 32,
-                ),
                 SizedBox(
-                  height: 50,
+                  height: 30,
                   child: DefaultTextStyle(
                     style: const TextStyle(
                         fontSize: 24,
@@ -73,11 +69,16 @@ class SignInScreen extends StatelessWidget {
                 ),
                 //botao entrar
                 Padding(
-                  padding: const EdgeInsets.only(top: 8),
+                  padding: const EdgeInsets.only(top: 8, bottom: 4),
                   child: SizedBox(
                       height: 50,
                       child: ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.of(context).pushReplacement(
+                                MaterialPageRoute(builder: (c) {
+                              return const BaseScreen();
+                            }));
+                          },
                           style: ElevatedButton.styleFrom(
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(16))),
