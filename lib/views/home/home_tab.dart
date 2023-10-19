@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:useme_app/config/custom_colors.dart';
 import 'package:useme_app/views/components/category_tile.dart';
+import 'package:useme_app/config/app_data.dart' as app_data;
 
 class HomeTab extends StatefulWidget {
   const HomeTab({super.key});
@@ -10,16 +11,6 @@ class HomeTab extends StatefulWidget {
 }
 
 class _HomeTabState extends State<HomeTab> {
-  List<String> list = [
-    "Creatina",
-    "Whey-Protein",
-    "Pré_Workout",
-    "Glutamina",
-    "BCAA",
-    "Naturais",
-    "Roupas"
-  ];
-
   String selectCategory = "";
 
   @override
@@ -67,15 +58,16 @@ class _HomeTabState extends State<HomeTab> {
                     return CategoryTile(
                       onPress: () {
                         setState(() {
-                          selectCategory = list[index];
+                          selectCategory = app_data.listcategories[index];
                         });
                       },
-                      category: list[index],
-                      isSelected: list[index] == selectCategory,
+                      category: app_data.listcategories[index],
+                      isSelected:
+                          app_data.listcategories[index] == selectCategory,
                     );
                   },
                   separatorBuilder: (_, index) => const SizedBox(width: 10),
-                  itemCount: list.length),
+                  itemCount: app_data.listcategories.length),
             ),
           )
           //Grid
