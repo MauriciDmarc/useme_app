@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:useme_app/config/custom_colors.dart';
 import 'package:useme_app/views/components/category_tile.dart';
 import 'package:useme_app/config/app_data.dart' as app_data;
+import 'package:useme_app/views/components/item_tile.dart';
 
 class HomeTab extends StatefulWidget {
   const HomeTab({super.key});
@@ -69,8 +70,24 @@ class _HomeTabState extends State<HomeTab> {
                   separatorBuilder: (_, index) => const SizedBox(width: 10),
                   itemCount: app_data.listcategories.length),
             ),
-          )
+          ),
           //Grid
+          Expanded(
+            child: GridView.builder(
+                padding: const EdgeInsets.all(8),
+                physics: const BouncingScrollPhysics(),
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    mainAxisSpacing: 10,
+                    crossAxisSpacing: 10,
+                    childAspectRatio: 9 / 12),
+                itemCount: app_data.items.length,
+                itemBuilder: (_, index) {
+                  return ItemTile(
+                    itemModel: app_data.items[index],
+                  );
+                }),
+          )
         ],
       ),
     );
