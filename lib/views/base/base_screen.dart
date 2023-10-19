@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:useme_app/config/custom_colors.dart';
-import 'package:useme_app/home/home_tab.dart';
+import 'package:useme_app/views/home/home_tab.dart';
 
 class BaseScreen extends StatefulWidget {
   const BaseScreen({super.key});

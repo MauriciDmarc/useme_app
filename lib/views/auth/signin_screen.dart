@@ -1,8 +1,8 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
-import 'package:useme_app/base/base_screen.dart';
-import 'package:useme_app/components/custom_textformfield.dart';
 import 'package:useme_app/config/custom_colors.dart';
+import 'package:useme_app/views/base/base_screen.dart';
+import 'package:useme_app/views/components/custom_textformfield.dart';
 
 class SignInScreen extends StatelessWidget {
   const SignInScreen({super.key});
