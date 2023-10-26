@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:useme_app/config/custom_colors.dart';
+import 'package:useme_app/views/cart/cart_tab.dart';
 import 'package:useme_app/views/home/home_tab.dart';
 
 class BaseScreen extends StatefulWidget {
@@ -53,9 +54,7 @@ class _BaseScreenState extends State<BaseScreen> {
           controller: pcontroller,
           children: [
             const HomeTab(),
-            Container(
-              color: Colors.red,
-            ),
+            CartScreen(),
             Container(
               color: Colors.yellow,
             ),

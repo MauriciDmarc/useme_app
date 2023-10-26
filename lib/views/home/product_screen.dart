@@ -4,6 +4,7 @@ import 'package:useme_app/config/custom_colors.dart';
 import 'package:useme_app/models/item_model.dart';
 import 'package:useme_app/views/components/custom_quantityitem.dart';
 
+// ignore: must_be_immutable
 class ProductScreen extends StatefulWidget {
   ProductScreen({super.key, required this.item, required this.initialPrice});
   final ItemModel item;

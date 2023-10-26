@@ -1,3 +1,4 @@
+import 'package:useme_app/models/cart_itemmodel.dart';
 import 'package:useme_app/models/item_model.dart';
 
 List<String> listcategories = [
@@ -38,3 +39,9 @@ ItemModel Glutamina = ItemModel(
     price: 45.02);
 
 List<ItemModel> items = [Whey, Creatina, Glutamina];
+
+List<CartItemModel> cartitens = [
+  CartItemModel(itemModel: Whey, quantity: 2),
+  CartItemModel(itemModel: Creatina, quantity: 3),
+  CartItemModel(itemModel: Glutamina, quantity: 1)
+];
