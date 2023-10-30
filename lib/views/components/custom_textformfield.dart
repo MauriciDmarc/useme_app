@@ -4,11 +4,13 @@ class CustomTextFormField extends StatefulWidget {
   final IconData iconData;
   final String label;
   final bool visibility;
+  final TextInputType keyboardType;
   const CustomTextFormField(
       {super.key,
       required this.iconData,
       required this.label,
-      this.visibility = false});
+      this.visibility = false,
+      this.keyboardType = TextInputType.text});
 
   @override
   State<CustomTextFormField> createState() => _CustomTextFormFieldState();
@@ -30,6 +32,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
       padding: const EdgeInsets.symmetric(vertical: 8),
       child: TextFormField(
         obscureText: isobscure,
+        keyboardType: widget.keyboardType,
         decoration: InputDecoration(
           isDense: true,
           label: Text(widget.label),
@@ -49,7 +52,8 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
               borderSide: const BorderSide(color: Colors.black12)),
           focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(28),
-              borderSide: const BorderSide(color: Colors.deepPurple, width: 2)),
+              borderSide:
+                  const BorderSide(color: Colors.deepPurpleAccent, width: 2)),
         ),
       ),
     );
