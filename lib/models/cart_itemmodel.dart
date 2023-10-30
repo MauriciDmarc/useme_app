@@ -5,4 +5,6 @@ class CartItemModel {
   int quantity;
 
   CartItemModel({required this.itemModel, required this.quantity});
+
+  double totalPrice() => itemModel.price * quantity;
 }

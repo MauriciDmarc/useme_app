@@ -3,11 +3,13 @@ import 'package:flutter/material.dart';
 class CustomQuantityItem extends StatelessWidget {
   final int value;
   final Function(int quantity) result;
+  final bool isRemovable;
 
   const CustomQuantityItem({
     Key? key,
     required this.value,
     required this.result,
+    this.isRemovable = false,
   }) : super(key: key);
 
   @override
@@ -29,10 +31,11 @@ class CustomQuantityItem extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           _QuantityButton(
-            icon: Icons.remove,
-            color: Colors.grey,
+            icon:
+                isRemovable && value == 1 ? Icons.delete_forever : Icons.remove,
+            color: isRemovable && value == 1 ? Colors.red : Colors.grey,
             onPressed: () {
-              if (value == 1) return;
+              if (value == 1 && !isRemovable) return;
 
               int resultCount = value - 1;
               result(resultCount);

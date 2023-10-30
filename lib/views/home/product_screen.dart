@@ -6,10 +6,9 @@ import 'package:useme_app/views/components/custom_quantityitem.dart';
 
 // ignore: must_be_immutable
 class ProductScreen extends StatefulWidget {
-  ProductScreen({super.key, required this.item, required this.initialPrice});
+  ProductScreen({super.key, required this.item});
   final ItemModel item;
   int itemQuantity = 1;
-  final double initialPrice;
 
   @override
   State<ProductScreen> createState() => _ProductScreenState();
@@ -57,7 +56,6 @@ class _ProductScreenState extends State<ProductScreen> {
                         value: widget.itemQuantity,
                         result: (int quantity) {
                           setState(() {
-                            widget.item.price = widget.initialPrice * quantity;
                             widget.itemQuantity = quantity;
                           });
                         })
@@ -65,7 +63,8 @@ class _ProductScreenState extends State<ProductScreen> {
                 ),
                 //preço
                 Text(
-                  UtilServices().priceToCurrency(widget.item.price),
+                  UtilServices()
+                      .priceToCurrency(widget.item.price * widget.itemQuantity),
                   style: const TextStyle(
                       color: Colors.deepPurpleAccent,
                       fontSize: 24,
