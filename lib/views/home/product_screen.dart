@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:useme_app/Services/util_services.dart';
 import 'package:useme_app/config/custom_colors.dart';
+import 'package:useme_app/models/cart_itemmodel.dart';
 import 'package:useme_app/models/item_model.dart';
 import 'package:useme_app/views/components/custom_quantityitem.dart';
+import 'package:useme_app/config/app_data.dart' as app_data;
 
 // ignore: must_be_immutable
 class ProductScreen extends StatefulWidget {
@@ -91,7 +93,11 @@ class _ProductScreenState extends State<ProductScreen> {
                       style: ElevatedButton.styleFrom(
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(15))),
-                      onPressed: () {},
+                      onPressed: () {
+                        app_data.cartitens.add(CartItemModel(
+                            itemModel: widget.item,
+                            quantity: widget.itemQuantity));
+                      },
                       icon: const Icon(Icons.shopping_cart),
                       label: const Text(
                         "Adicionar ao Carrinho",

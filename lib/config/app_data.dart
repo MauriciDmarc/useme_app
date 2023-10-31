@@ -41,11 +41,7 @@ ItemModel Glutamina = ItemModel(
 
 List<ItemModel> items = [Whey, Creatina, Glutamina];
 
-List<CartItemModel> cartitens = [
-  CartItemModel(itemModel: Whey, quantity: 2),
-  CartItemModel(itemModel: Creatina, quantity: 3),
-  CartItemModel(itemModel: Glutamina, quantity: 1)
-];
+List<CartItemModel> cartitens = [];
 
 UserModel user = UserModel(
     celular: 12991581135,
