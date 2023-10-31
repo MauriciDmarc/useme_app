@@ -5,11 +5,13 @@ class CustomTextFormField extends StatefulWidget {
   final String label;
   final bool visibility;
   final TextInputType keyboardType;
+  final String? initalValue;
   const CustomTextFormField(
       {super.key,
       required this.iconData,
       required this.label,
       this.visibility = false,
+      this.initalValue,
       this.keyboardType = TextInputType.text});
 
   @override
@@ -31,6 +33,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8),
       child: TextFormField(
+        initialValue: widget.initalValue,
         obscureText: isobscure,
         keyboardType: widget.keyboardType,
         decoration: InputDecoration(

@@ -1,5 +1,6 @@
 import 'package:useme_app/models/cart_itemmodel.dart';
 import 'package:useme_app/models/item_model.dart';
+import 'package:useme_app/models/user_model.dart';
 
 List<String> listcategories = [
   "Creatina",
@@ -45,3 +46,12 @@ List<CartItemModel> cartitens = [
   CartItemModel(itemModel: Creatina, quantity: 3),
   CartItemModel(itemModel: Glutamina, quantity: 1)
 ];
+
+UserModel user = UserModel(
+    celular: 12991581135,
+    cpf: 23653295866,
+    email: "mauricifernandes0@gmail.com",
+    endereco: "Rua Antonio de Oliveira Filho",
+    nome: "Maurici D'marco Fernandes",
+    numero: 206,
+    senha: "Maur1c1@@@");
