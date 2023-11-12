@@ -97,6 +97,12 @@ class _ProductScreenState extends State<ProductScreen> {
                         app_data.cartitens.add(CartItemModel(
                             itemModel: widget.item,
                             quantity: widget.itemQuantity));
+
+                        Navigator.of(context).pop();
+                        ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(
+                                backgroundColor: Colors.green,
+                                content: Text("Item Adicionado")));
                       },
                       icon: const Icon(Icons.shopping_cart),
                       label: const Text(

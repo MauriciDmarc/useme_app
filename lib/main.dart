@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:useme_app/views/auth/signin_screen.dart';
+import 'package:get/get.dart';
+import 'package:useme_app/routes/page_routes.dart';
 
 void main() {
   runApp(const MainApp());
@@ -10,9 +11,11 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(primarySwatch: Colors.deepPurple),
-        home: const SignInScreen());
+    return GetMaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(primarySwatch: Colors.deepPurple),
+      initialRoute: '/login',
+      getPages: AppPage.pages,
+    );
   }
 }

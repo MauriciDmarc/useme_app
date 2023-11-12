@@ -1,8 +1,11 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:useme_app/Services/util_services.dart';
 import 'package:useme_app/config/custom_colors.dart';
 import 'package:useme_app/config/app_data.dart' as app_data;
 import 'package:useme_app/models/cart_itemmodel.dart';
+import 'package:useme_app/models/orders_model.dart';
 import 'package:useme_app/views/components/cart_tile.dart';
 
 class CartScreen extends StatefulWidget {
@@ -30,6 +33,15 @@ class _CartScreenState extends State<CartScreen> {
     return total;
   }
 
+  String generateRandomNumber(int length) {
+    final random = Random();
+    String number = "";
+    for (int i = 0; i < length; i++) {
+      number += "${random.nextInt(10)}";
+    }
+    return number;
+  }
+
   Future<bool?> showOrderConfirmation() {
     return showDialog<bool>(
         context: context,
@@ -50,7 +62,22 @@ class _CartScreenState extends State<CartScreen> {
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(20))),
                   onPressed: () {
-                    Navigator.of(context).pop(true);
+                    if (app_data.cartitens.isEmpty) {
+                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                          backgroundColor: Colors.red,
+                          content: Text("Carrinho está vazio!")));
+                      Navigator.of(context).pop(true);
+                    } else {
+                      Navigator.of(context).pop(true);
+                      app_data.orders.add(OrderModel(
+                          id: generateRandomNumber(6),
+                          createdDateTime: DateTime.now(),
+                          overdueDateTime: DateTime.now(),
+                          items: app_data.cartitens,
+                          status: "pending_payment",
+                          copyPastePix:
+                              "123e4567-e12b-12d1-a456-426655440000"));
+                    }
                   },
                   child: const Text("Sim"))
             ],

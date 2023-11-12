@@ -1,5 +1,6 @@
 import 'package:useme_app/models/cart_itemmodel.dart';
 import 'package:useme_app/models/item_model.dart';
+import 'package:useme_app/models/orders_model.dart';
 import 'package:useme_app/models/user_model.dart';
 
 List<String> listcategories = [
@@ -51,3 +52,7 @@ UserModel user = UserModel(
     nome: "Maurici D'marco Fernandes",
     numero: 206,
     senha: "Maur1c1@@@");
+
+List<OrderModel> orders = [];
+
+List<String> login = ["Admin", "123456"];
